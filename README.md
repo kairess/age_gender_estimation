@@ -1,0 +1,11 @@
+# Age Gender Estimation
+
+![1.jpg](https://github.com/kairess/age_gender_estimation/raw/master/result/24.jpg)
+
+- Used pretrained models from [https://github.com/GilLevi/AgeGenderDeepLearning](https://github.com/GilLevi/AgeGenderDeepLearning)
+
+
+## Dependencies
+- Python 3+
+- dlib
+- OpenCV 3.3+
