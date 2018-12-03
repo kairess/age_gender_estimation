@@ -24,7 +24,9 @@ for img_path in img_list:
 
     face_img = img[y1:y2, x1:x2].copy()
 
-    blob = cv2.dnn.blobFromImage(face_img, scalefactor=1, size=(227, 227), mean=(78.4263377603, 87.7689143744, 114.895847746), swapRB=False, crop=False)
+    blob = cv2.dnn.blobFromImage(face_img, scalefactor=1, size=(227, 227),
+      mean=(78.4263377603, 87.7689143744, 114.895847746),
+      swapRB=False, crop=False)
 
     # predict gender
     gender_net.setInput(blob)
@@ -38,9 +40,11 @@ for img_path in img_list:
 
     # visualize
     cv2.rectangle(img, (x1, y1), (x2, y2), (255,255,255), 2)
-    overlay_text = '%s, %s' % (gender, age)
-    cv2.putText(img, overlay_text, org=(x1, y1), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=1, color=(0,0,0), thickness=10)
-    cv2.putText(img, overlay_text, org=(x1, y1), fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=1, color=(255,255,255), thickness=2)
+    overlay_text = '%s %s' % (gender, age)
+    cv2.putText(img, overlay_text, org=(x1, y1), fontFace=cv2.FONT_HERSHEY_SIMPLEX,
+      fontScale=1, color=(0,0,0), thickness=10)
+    cv2.putText(img, overlay_text, org=(x1, y1),
+      fontFace=cv2.FONT_HERSHEY_SIMPLEX, fontScale=1, color=(255,255,255), thickness=2)
 
   cv2.imshow('img', img)
   cv2.imwrite('result/%s' % img_path.split('/')[-1], img)
